@@ -1,4 +1,4 @@
-package com.worldriskclock.app;
+package com.worlddoomsdayclock;
 
 import android.app.Activity;
 import android.os.Bundle;
