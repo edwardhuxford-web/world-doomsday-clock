@@ -3,6 +3,106 @@ package com.worlddoomsdayclock;
 import android.app.Activity;
 import android.os.Bundle;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        ScrollView scroll = new ScrollView(this);
+
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setGravity(Gravity.CENTER_HORIZONTAL);
+        layout.setPadding(40, 60, 40, 60);
+        layout.setBackgroundColor(Color.BLACK);
+
+        TextView title = makeText(
+                "WORLD DOOMSDAY CLOCK",
+                28, Color.WHITE, true);
+        layout.addView(title);
+
+        TextView subtitle = makeText(
+                "GLOBAL RISK MONITOR",
+                15, Color.LTGRAY, false);
+        layout.addView(subtitle);
+
+        TextView clock = makeText(
+                "90 SECONDS",
+                52, Color.RED, true);
+        clock.setPadding(0, 45, 0, 0);
+        layout.addView(clock);
+
+        TextView midnight = makeText(
+                "TO MIDNIGHT",
+                22, Color.WHITE, true);
+        layout.addView(midnight);
+
+        TextView status = makeText(
+                "\nCURRENT GLOBAL RISK: CRITICAL",
+                19, Color.RED, true);
+        layout.addView(status);
+
+        TextView risks = makeText(
+                "\nRISK MONITOR\n\n" +
+                "NUCLEAR TENSION       HIGH\n\n" +
+                "GLOBAL CONFLICT       HIGH\n\n" +
+                "CLIMATE RISK          HIGH\n\n" +
+                "BIOLOGICAL RISK       ELEVATED\n\n" +
+                "AI / TECHNOLOGY       ELEVATED\n\n" +
+                "GEOPOLITICAL RISK     HIGH",
+                17, Color.WHITE, false);
+        layout.addView(risks);
+
+        TextView divider = makeText(
+                "\n────────────────────\n",
+                16, Color.DKGRAY, false);
+        layout.addView(divider);
+
+        TextView update = makeText(
+                "WORLD RISK ANALYSIS\n\n" +
+                "The World Doomsday Clock monitors major global threats " +
+                "and combines them into a single risk indicator.\n\n" +
+                "Future versions will connect these indicators to " +
+                "live world-news and risk data.",
+                16, Color.LTGRAY, false);
+        layout.addView(update);
+
+        TextView footer = makeText(
+                "\nWORLD DOOMSDAY CLOCK\n" +
+                "Monitoring humanity's global risk",
+                14, Color.GRAY, false);
+        layout.addView(footer);
+
+        scroll.addView(layout);
+        setContentView(scroll);
+    }
+
+    pprivate TextView makeText(String text, int size, int color, boolean bold) {
+        TextView view = new TextView(this);
+        view.setText(text);
+        view.setTextSize(size);
+        view.setTextColor(color);
+        view.setGravity(Gravity.CENTER);
+        view.setPadding(10, 12, 10, 12);
+
+        if (bold) {
+            view.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+        }
+
+        return view;
+    }
+} com.worlddoomsdayclock;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.graphics.Color;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
