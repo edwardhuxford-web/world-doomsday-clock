@@ -45,46 +45,31 @@ public class MainActivity extends Activity {
         layout.addView(midnight);
 
         TextView status = makeText(
-                "\nCURRENT GLOBAL RISK: CRITICAL",
-                19, Color.RED, true);
+                "CURRENT GLOBAL RISK LEVEL",
+                16, Color.LTGRAY, false);
+        status.setPadding(0, 55, 0, 10);
         layout.addView(status);
 
-        TextView risks = makeText(
-                "\nRISK MONITOR\n\n" +
-                "NUCLEAR TENSION       HIGH\n\n" +
-                "GLOBAL CONFLICT       HIGH\n\n" +
-                "CLIMATE RISK          HIGH\n\n" +
-                "BIOLOGICAL RISK       ELEVATED\n\n" +
-                "AI / TECHNOLOGY       ELEVATED\n\n" +
-                "GEOPOLITICAL RISK     HIGH",
+        TextView risk = makeText(
+                "CRITICAL",
+                30, Color.RED, true);
+        layout.addView(risk);
+
+        TextView description = makeText(
+                "\nThe World Doomsday Clock monitors major global risks including nuclear conflict, climate change, artificial intelligence, pandemics and geopolitical instability.",
                 17, Color.WHITE, false);
-        layout.addView(risks);
-
-        TextView divider = makeText(
-                "\n────────────────────\n",
-                16, Color.DKGRAY, false);
-        layout.addView(divider);
-
-        TextView update = makeText(
-                "WORLD RISK ANALYSIS\n\n" +
-                "The World Doomsday Clock monitors major global threats " +
-                "and combines them into a single risk indicator.\n\n" +
-                "Future versions will connect these indicators to " +
-                "live world-news and risk data.",
-                16, Color.LTGRAY, false);
-        layout.addView(update);
+        layout.addView(description);
 
         TextView footer = makeText(
-                "\nWORLD DOOMSDAY CLOCK\n" +
-                "Monitoring humanity's global risk",
-                14, Color.GRAY, false);
+                "\nWORLD DOOMSDAY CLOCK\nGlobal Risk Monitoring System",
+                14, Color.LTGRAY, false);
         layout.addView(footer);
 
         scroll.addView(layout);
         setContentView(scroll);
     }
 
-    pprivate TextView makeText(String text, int size, int color, boolean bold) {
+    private TextView makeText(String text, int size, int color, boolean bold) {
         TextView view = new TextView(this);
         view.setText(text);
         view.setTextSize(size);
@@ -97,51 +82,5 @@ public class MainActivity extends Activity {
         }
 
         return view;
-    }
-} com.worlddoomsdayclock;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.graphics.Color;
-import android.view.Gravity;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-public class MainActivity extends Activity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setGravity(Gravity.CENTER);
-        layout.setPadding(40, 40, 40, 40);
-        layout.setBackgroundColor(Color.BLACK);
-
-        TextView title = new TextView(this);
-        title.setText("WORLD DOOMSDAY CLOCK");
-        title.setTextColor(Color.WHITE);
-        title.setTextSize(26);
-        title.setGravity(Gravity.CENTER);
-
-        TextView clock = new TextView(this);
-        clock.setText("90 SECONDS");
-        clock.setTextColor(Color.RED);
-        clock.setTextSize(48);
-        clock.setGravity(Gravity.CENTER);
-
-        TextView message = new TextView(this);
-        message.setText("TO MIDNIGHT");
-        message.setTextColor(Color.WHITE);
-        message.setTextSize(22);
-        message.setGravity(Gravity.CENTER);
-
-        layout.addView(title);
-        layout.addView(clock);
-        layout.addView(message);
-
-        setContentView(layout);
-
     }
 }
